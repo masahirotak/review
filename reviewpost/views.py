@@ -8,7 +8,6 @@ from django.urls import reverse_lazy
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 
-
 class CreateClass(CreateView):
     template_name = 'create.html'
     model = ReviewModel
@@ -44,6 +43,7 @@ def loginview(request):
 
 @login_required
 def listview(request):
+
     object_list = ReviewModel.objects.all()
     return render(request,'list.html',{'object_list':object_list})
 
